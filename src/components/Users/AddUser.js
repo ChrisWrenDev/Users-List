@@ -12,6 +12,8 @@ const AddUser = function (props) {
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0)
       return;
     if (+enteredAge < 1) return;
+
+    props.onAddUser(enteredUsername, enteredAge);
     setEnteredUsername("");
     setEnteredAge("");
   };
@@ -38,7 +40,7 @@ const AddUser = function (props) {
         <input
           id="age"
           type="number"
-          value={setEnteredAge}
+          value={enteredAge}
           onChange={ageChangeHandler}
         />
         <Button type="submit">Add User</Button>
